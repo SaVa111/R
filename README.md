@@ -2,15 +2,21 @@
 Метрические методы обучения -- методы, основанные на анализе сходства объектов.
 Мерой близости называют функцию расстояния. Чем меньше расстояние между объектами, тем больше объекты похожи друг на друга.
 Метрические алгоритмы классификации опираются на гипотезу компактности: схожим объектам соответствуют схожие ответы.
+## KNN Метод К ближайших соседей
+
+![KNN](https://github.com/SaVa111/R/blob/master/Images/6NN.png)
+### Взвешенный KNN
+![KNN](https://github.com/SaVa111/R/blob/master/Images/W6NN.png)
 
 ## Парзеновское окно
+![VParzen](https://github.com/SaVa111/R/blob/master/Images/CParzen.png)
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOgaus.png)
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOepanenchenkov.png)
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOrectangle.png)
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOtriangle.png)
 
 ## Парзеновское окно переменной ширины
-
+![VParzen](https://github.com/SaVa111/R/blob/master/Images/VParzen.png)
 # Байесовские методы классификации
 
 ## Plug-in алгоритм
