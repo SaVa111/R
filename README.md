@@ -62,6 +62,13 @@ KNN <- function(point, matrica, k, q = 1)
 
 ## Парзеновское окно
 
+Возьмём весовую функцию - некоторую невозрастающую на [0, ∞] функцию ядра.
+и получим классификатор который имеет вид: 
+![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/image3.png)
+основной смысл в том, что мы просматриваем сферическую окрестность(окно) и попадающин в нее элементы определяют к какому из классов относится элемент.
+![CParzen](https://github.com/SaVa111/R/blob/master/Images/CParzen.png)
+
+Исходный код:
 ```
 ConstParzen <- function(point, matrica, h)
 {
@@ -79,8 +86,6 @@ ConstParzen <- function(point, matrica, h)
 }
 ```
 
-![CParzen](https://github.com/SaVa111/R/blob/master/Images/CParzen.png)
-
 ### Сравним различные ядра.
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOgaus.png)
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOepanenchenkov.png)
@@ -89,8 +94,8 @@ ConstParzen <- function(point, matrica, h)
 
 Наилучший результат даёт Гаусово ядро со значением ошибки 0.1, в то время как у остальных он равен 0.4.
 
-
 ## Парзеновское окно переменной ширины
+Чтобы избежать случаев, когда у нас окно не попадает, ни на один элемент или наоборот охватывает слишком большую окрестность, введем зависимость размера окна от попадающих в него элементов. Будем выбирать такой размер окна, чтобы в него всегда попадало k соседей.
 ![VParzen](https://github.com/SaVa111/R/blob/master/Images/VParzen.png)
 
 ```
