@@ -1,7 +1,7 @@
 # Сеть радиальных базисных функций
 
 Радиально базисными функцами называется класс функций являющихся Гауссианами с диагональной матрицей ковариации и имеет вид: 
-![RBF](https://github.com/SaVa111/R/blob/master/Images/image.png)
+    ![RBF](https://github.com/SaVa111/R/blob/master/Images/image.png)
 ![RBF](https://github.com/SaVa111/R/blob/master/Images/RBFnet.png)
 ```
 EM <- function(X, R, m0, delta)
