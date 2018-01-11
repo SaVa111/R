@@ -137,3 +137,5 @@ EM <- function(X, R, m0, delta)
 ![RBF](https://github.com/SaVa111/R/blob/master/Images/RBF2d2.png)
 ## Результат работы.
 ![RBF](https://github.com/SaVa111/R/blob/master/Images/RBF3d2.png)
+
+# Линейные методы классификации
