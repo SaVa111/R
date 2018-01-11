@@ -11,10 +11,12 @@
 
 ## Парзеновское окно переменной ширины
 
-# Plug-in алгоритм
+# Байесовские методы классификации
+
+## Plug-in алгоритм
 ![plug-in](https://github.com/SaVa111/R/blob/master/Images/plug-in.png)
 ![plug-in](https://github.com/SaVa111/R/blob/master/Images/plug-in2.png)
-# Сеть радиальных базисных функций
+## Сеть радиальных базисных функций
 
 Радиально базисными функцами называется класс функций являющихся Гауссианами с диагональной матрицей ковариации и имеет вид: 
 ![RBF](https://github.com/SaVa111/R/blob/master/Images/image.png)
