@@ -22,16 +22,98 @@
 Эту проблему решает взвешенный KNN который помима самих соседей оценивает, так же и расстояние до объектов.
 ### Результат работы:
 ![KNN](https://github.com/SaVa111/R/blob/master/Images/W6NN.png)
+Исходный код:
+
+```
+KNN <- function(point, matrica, k, q = 1)
+{
+  distances <- matrix(data = NA ,nrow = 1)
+  for(i in 1:nrow(matrica))
+  {
+    distances[i] <- euclideanDistance(c(matrica[i,3], matrica[i,4]), point)
+  }
+  namedDistances <- data.frame(matrica[,5], distances)
+  sortedNamedDistances <- namedDistances[order(distances),]
+  
+  aaa <- rep(0, 3)
+  aaa[sortedNamedDistances[1:k, 1]] <- 0
+  for(i in 1:k)
+  {
+    aaa[sortedNamedDistances[i, 1]] <- aaa[sortedNamedDistances[i, 1]] + q^i
+  }
+  
+  max <- 0
+  id <- 0
+  
+  for (i in 1:length(aaa)) {
+    if (aaa[i] > max) {
+      max = aaa[i]
+      id = i
+    }
+  }
+  
+  return(UnName(id))
+}
+```
 
 ## Парзеновское окно
-![VParzen](https://github.com/SaVa111/R/blob/master/Images/CParzen.png)
+
+```
+ConstParzen <- function(point, matrica, h)
+{
+  values <- rep(0, 3)
+  for(i in 1:nrow(matrica))
+  {
+    distance <- euclideanDistance(c(matrica[i,3], matrica[i,4]), point)
+    
+    value <- rectangle_core(distance / h)
+    values[matrica[i,5]] <- values[matrica[i,5]] + value
+  }
+  if (max(values) == 0)
+    return(0)
+  return(UnName(which.max(values)))
+}
+```
+
+![CParzen](https://github.com/SaVa111/R/blob/master/Images/CParzen.png)
+
+### Сравним различные ядра.
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOgaus.png)
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOepanenchenkov.png)
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOrectangle.png)
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOtriangle.png)
 
+Наилучший результат даёт Гаусово ядро со значением ошибки 0.1, в то время как у остальных он равен 0.4.
+
+
 ## Парзеновское окно переменной ширины
 ![VParzen](https://github.com/SaVa111/R/blob/master/Images/VParzen.png)
+
+```
+VairableParzen <- function(point, matrica, k)
+{
+  
+  distances <- matrix(data = NA ,nrow = 1)
+  for(i in 1:nrow(matrica))
+  {
+    distances[i] <- euclideanDistance(c(matrica[i,3], matrica[i, 4]), point)
+  }
+  namedDistances <- data.frame(matrica[,5], distances)
+  sortedNamedDistances <- namedDistances[order(distances),]
+  if(sortedNamedDistances[1,2] == 0.)
+    return(sortedNamedDistances[1, 1])
+  #print(sortedNamedDistances)
+  values <- rep(0, 3)
+  for(i in 1:k)
+  {
+    value <- rectangle_core(sortedNamedDistances[i,2] / sortedNamedDistances[k+1,2])
+    values[sortedNamedDistances[i,1]] <- values[sortedNamedDistances[i,1]] + value
+  }
+  if (max(values) == 0)
+    return(0)
+  return(UnName(which.max(values)))
+}
+```
 # Байесовские методы классификации
 
 ## Plug-in алгоритм
