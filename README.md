@@ -3,6 +3,11 @@
 Мерой близости называют функцию расстояния. Чем меньше расстояние между объектами, тем больше объекты похожи друг на друга.
 Метрические алгоритмы классификации опираются на гипотезу компактности: схожим объектам соответствуют схожие ответы.
 
+![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOgaus.png)
+![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOepanenchenkov.png)
+![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOrectangle.png)
+![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOtriangle.png)
+
 # Сеть радиальных базисных функций
 
 Радиально базисными функцами называется класс функций являющихся Гауссианами с диагональной матрицей ковариации и имеет вид: 
