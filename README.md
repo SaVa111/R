@@ -87,9 +87,13 @@ ConstParzen <- function(point, matrica, h)
 ```
 
 ### Сравним различные ядра.
+#### Гауссово ядро.
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOgaus.png)
+#### Ядро Епаненченкова.
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOepanenchenkov.png)
+#### Прямоугольное ядро.
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOrectangle.png)
+#### Треугольное ядро.
 ![LOO Parzen](https://github.com/SaVa111/R/blob/master/Images/LOOtriangle.png)
 
 Наилучший результат даёт Гаусово ядро со значением ошибки 0.1, в то время как у остальных он равен 0.4.
