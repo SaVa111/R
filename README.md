@@ -262,3 +262,38 @@ EM <- function(X, R, m0, delta)
 Метод заключается в минимизации импирического риска, путем градиентного спуска.
 Имеется некоторый вектор весов, который регулирует работу нашего классификатора. Будем изменять данный вектор двигаясь против градиента функции ошибки, тем самым её минимизируя.
 ![grad](https://github.com/SaVa111/R/blob/master/Images/grad.png)
+
+Исходный код:
+```
+stochGrad <- function(xl, eta, lambda){
+  wghtVec <- c()
+  wghtVecNew <- c()
+  wghtVec <- runif(nrow(xl), -1/nrow(xl), 1/nrow(xl))
+  Q <- 0
+  eps <- 0.999
+  
+
+  for(i in 1:nrow(xl)){
+    currSmplPoint <- c(xl[i,1],xl[i,2],rep(0,length(wghtVec) - 2))
+    Q <- Q + majorantFun(crossprod(currSmplPoint,wghtVec) * xl[i,3])
+    
+  }
+  print(Q)
+  
+  while(Q  >= eps){
+    rndElXl <- sample(1:nrow(xl), 1, replace = TRUE)
+    
+    currRndXL <- c(xl[rndElXl, 1],xl[rndElXl, 2],rep(0,length(wghtVec) - 2))
+    currError <- majorantFun(crossprod(currRndXL,wghtVec) * xl[rndElXl, 3])
+    prodXiYi <- currRndXL  * xl[rndElXl,3]
+    wghtVecNew <- wghtVec - as.vector(eta * (majorantToDiff(crossprod(currRndXL, wghtVec)))) * prodXiYi
+    Q <- (1 - lambda)*Q + lambda*currError
+    
+    abline(wghtVecNew[3]/wghtVecNew[2],-wghtVecNew[1]/wghtVecNew[2], col = "black")
+    
+  }
+  abline(wghtVecNew[3]/wghtVecNew[2],-wghtVecNew[1]/wghtVecNew[2], col = "red", lwd = 3)
+  
+}
+```
+
