@@ -113,7 +113,9 @@ EM <- function(X, R, m0, delta)
 ```
 ## Пример работы:
 ![RBF](https://github.com/SaVa111/R/blob/master/Images/RBF2d.png)
-## Трёхмерная модель для наглядного демонстрирования полученного распределения
+## Трёхмерная модель для наглядного демонстрирования полученного распределения:
 ![RBF](https://github.com/SaVa111/R/blob/master/Images/RBF3d.png)
+## Аналогично для трёх классов состаящих из различного числа компонент.
 ![RBF](https://github.com/SaVa111/R/blob/master/Images/RBF2d2.png)
+## Результат работы.
 ![RBF](https://github.com/SaVa111/R/blob/master/Images/RBF3d2.png)
